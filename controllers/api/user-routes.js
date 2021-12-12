@@ -66,7 +66,32 @@ router.post('/', (req, res) => {
 })
 
 // Log a user in
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            email: req.body.email
+        }
+    })
+        .then(dbUserData => {
+            if (!dbUserData) {
+                res.status(404).json({ message: 'User not found' })
+                return;
+            }
+            // uses the instance method created in the User model to check passwords
+            const validPassword = dbUserData.checkPassword(req.body.password);
 
+            if (!validPassword) {
+                res.status(400).json({ message: 'Incorrect password' })
+                return;
+            }
+
+            res.json(dbUserData)
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(500).json(err)
+        })
+})
 
 // Log a user out
 
