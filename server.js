@@ -28,7 +28,7 @@ const sequelize = require('./config/connections');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(require('./controllers/'));
+app.use(require('./controllers/'));
 
 
 
