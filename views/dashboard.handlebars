@@ -1,3 +1,37 @@
-<h1>
-    OMG This is your dashboard
-</h1>
+<section class="d-flex align-items-center flex-column">
+    <h2>Create A New Post</h2>
+
+    <form class="new-post-form p-2">
+        <div>
+            <h5>Title</h5>
+            <input type="text" id="post-title" name="post-title" />
+        </div>
+        <div>
+            <h5>Post content</h5>
+            <textarea name="post-body" class="form-control-lg"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Create Post</button>
+    </form>
+</section>
+
+
+{{#if posts.length}}
+<section>
+    <ol>
+        <ol>
+            <div class="d-flex p-2 mt-3 justify-content-center">
+            {{#each posts as |post|}}
+            <div class="card m-2" style="width: 18rem;">
+                <h5 class="card-header"><a href="/post/{{id}}" class="text-decoration-none">{{title}}</a></h5>
+                <div class="card-body">
+                    <p class="card-text">by {{user.username}} on {{created_at}} With {{comments.length}} comment(s)</p>
+                    <a href="/dashboard/edit/{{post.id}}" class="card-link">Edit post</a>
+                </div>
+            </div>
+            {{/each}}
+            </div>
+        </ol>
+    </ol>
+</section>
+{{/if}}
+<script src="/javascript/add-post.js"></script>

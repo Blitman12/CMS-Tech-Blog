@@ -1,0 +1,37 @@
+<div class="card m-4" style="width: 18rem;">
+    <h5 class="card-header">{{post.title}}</h5>
+    <div class="card-body">
+        <p class="card-text">{{post.content}}</p>
+        <p class="card-text">by {{post.user.username}} on {{created_at}} With {{post.comments.length}} comment(s)</p>
+    </div>
+</div>
+
+
+{{#if loggedIn}}
+
+<form class="comment-form m-4">
+    <h5>Create a comment</h5>
+    <div>
+        <textarea name="comment-body" class="form-control-lg" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">add comment</button>
+</form>
+{{/if}}
+
+<div class="comments m-4">
+    {{#each post.comments}}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <p class="card-text">{{comment_text}}</p>
+            <h6 class="card-subtitle mb-2 text-muted">By {{user.username}} on {{created_at}}</h6>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+
+
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

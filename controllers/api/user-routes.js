@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require("../../models");
+const withAuth = require('../../utils/auth');
 
 // get all users
 router.get('/', (req, res) => {
@@ -118,7 +119,7 @@ router.post('/logout', (req, res) => {
 })
 
 // Update a user
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     // if the req.body has the exact same Key/Value pairs as the model then you can just pass in req.body instead
     User.update(req.body, {
         // individualHooks set to True so it can bcrypt read/write passwords
@@ -141,7 +142,7 @@ router.put('/:id', (req, res) => {
 })
 
 // Delete a User
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     User.destroy({
         where: {
             id: req.params.id

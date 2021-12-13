@@ -1,3 +1,15 @@
-<div>
-    <h1>This is the homepage</h1>
-</div>
+<h2 class="text-center mt-3">Posts</h2>
+<ol>
+    <ol>
+        <div class="d-flex p-2 mt-3">
+        {{#each posts as |post|}}
+        <div class="card m-1" style="width: 18rem;">
+            <h5 class="card-header"><a href="/post/{{id}}" class="text-decoration-none">{{title}}</a></h5>
+            <div class="card-body">
+                <p class="card-text">by {{user.username}} on {{created_at}} With {{comments.length}} comment(s)</p>
+            </div>
+        </div>
+        {{/each}}
+        </div>
+    </ol>
+</ol>
