@@ -1,36 +1,33 @@
 <article>
-    <a href="/dashboard"> &larr; Back to dashboard</a>
-    <h2>
-        Edit Post
-    </h2>
-    <form class="edit-post-form">
-        <div>
-            Title: <input name="post-title" type="text" placeholder="{{post.title}}" />
+    <a href="/dashboard" class="text-decoration-none"> &larr; Back to dashboard</a>
+    <div class="d-flex align-items-center flex-column">
+        <h2>
+            Edit Post
+        </h2>
+        <form class="edit-post-form p-2">
             <div>
-                Content:<textarea name="post-content" type="text" placeholder="{{post.content}}" /></textarea>
+                <div>
+                    <h5>Title</h5>
+                    <input name="post-title" type="text" placeholder="{{post.title}}" />
+                </div>
+                <div>
+                    <h5>Content</h5>
+                    <textarea class="form-control-lg" name="post-content" type="text" placeholder="{{post.content}}" /></textarea>
+                </div>
             </div>
-        </div>
-        <div>
-            Created by you on {{created_at}}
-            <a href="/post/{{post.id}}"> With {{post.comments.length}} comment(s)</a>
-        </div>
-        <button type="submit">Save post</button>
-        <button type="button" id="delete-post-btn">Delete post</button>
-    </form>
+            <div>
+                Created by you on {{created_at}}
+                <a href="/post/{{post.id}}"> With {{post.comments.length}} comment(s)</a>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Save post</button>
+            <button type="button" id="delete-post-btn" class="btn btn-outline-primary">Delete post</button>
+        </form>
+    </div>
 
-    <form class="comment-form">
-        <div>
-            <textarea name="comment-body"></textarea>
-        </div>
 
-        <div>
-            <button type="submit">add comment</button>
-        </div>
-    </form>
-
-    <div class="comments m-4">
+    <div class="comments m-4 p-2 d-flex align-items-center flex-column">
         {{#each post.comments}}
-        <div class="card" style="width: 18rem;">
+        <div class="card m-1" style="width: 18rem;">
             <div class="card-body">
                 <p class="card-text">{{comment_text}}</p>
                 <h6 class="card-subtitle mb-2 text-muted">By {{user.username}} on {{created_at}}</h6>
@@ -42,4 +39,3 @@
 </article>
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>
