@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div>
-                Created by you on {{created_at}}
+                Created by you on {{moment created_at format="ddd DD/MM/YYYY HH:mm A"}}
                 <a href="/post/{{post.id}}"> With {{post.comments.length}} comment(s)</a>
             </div>
             <button type="submit" class="btn btn-outline-primary">Save post</button>
@@ -30,7 +30,7 @@
         <div class="card m-1" style="width: 18rem;">
             <div class="card-body">
                 <p class="card-text">{{comment_text}}</p>
-                <h6 class="card-subtitle mb-2 text-muted">By {{user.username}} on {{created_at}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">By {{user.username}} on {{moment created_at format="ddd DD/MM/YYYY HH:mm A"}}</h6>
             </div>
         </div>
         {{/each}}

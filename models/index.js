@@ -14,16 +14,16 @@ Post.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-
-// One Comment belongs to a Post
-Comment.belongsTo(Post, {
-    foreignKey: 'post_id'
-});
-
 // One Comment belongs to a User
 Comment.belongsTo(User, {
     foreignKey: 'user_id'
 })
+
+// One Comment belongs to a Post
+
+// Comment.belongsTo(Post, {
+//     foreignKey: 'post_id'
+// });
 
 // One User can have many Comments
 User.hasMany(Comment, {

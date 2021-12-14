@@ -6,7 +6,7 @@
         <div class="card m-1" style="width: 18rem;">
             <h5 class="card-header"><a href="/post/{{id}}" class="text-decoration-none">{{title}}</a></h5>
             <div class="card-body">
-                <p class="card-text">by {{user.username}} on {{created_at}} With {{comments.length}} comment(s)</p>
+                <p class="card-text">by {{user.username}} on {{moment created_at format="ddd DD/MM/YYYY HH:mm A"}} With {{comments.length}} comment(s)</p>
             </div>
         </div>
         {{/each}}

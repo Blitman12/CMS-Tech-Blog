@@ -3,6 +3,9 @@ const path = require('path');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 require('dotenv').config();
+const Handlebars = require("handlebars");
+const MomentHandler = require("handlebars.moment");
+MomentHandler.registerHelpers(Handlebars);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
