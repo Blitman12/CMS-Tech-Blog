@@ -26,4 +26,3 @@ Contributions could be providing options to add voting and update comments as we
 Please visit my [GitHub profile](https://github.com/blitman12) for other cool projects
 If you have any remaining questions please feel free to reach me at bradlitman94@gmail.com
 
-
